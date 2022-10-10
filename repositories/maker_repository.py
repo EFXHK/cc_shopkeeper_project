@@ -13,14 +13,12 @@ def save(maker):
     """
     values = [maker.name, maker.address]
     results = run_sql(sql, values)
-    id = results[0]['id']     # explain again
+    id = results[0]['id']    
     maker.id = id
     #maker.id = results[0]['id']
     return maker
 
 
-# def products(maker): ###list issue?
-#     products = []
 def select_all():
     makers = []
 
@@ -34,11 +32,16 @@ def select_all():
 
 # add rest of functions
 
-# def select(id):
-#     maker = None
-#     sql = "SELECT * FROM makers WHERE id = %s"
-#     values = [id]
-#     results = run_sql(sql, values)
+def select(id):
+    maker = None
+    sql = "SELECT * FROM makers WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    if len(results) > 0:
+        result = results[0]
+        maker = Maker(result['name'], result['address'], result['id'])
+    return maker
+
 
 
 

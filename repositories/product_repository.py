@@ -1,5 +1,5 @@
 from db.run_sql import run_sql
-
+from repositories import maker_repository
 from models.product import Product
 from models.maker import Maker
 
@@ -26,7 +26,8 @@ def select_all():
     sql = "SELECT * FROM products"
     results = run_sql(sql)
     for row in results:
-        product = Product(row['name'], row['purchase'], row['sell'], row['description'], row['stock_qty'], row['maker'], row['id'])
+        maker = maker_repository.select(row['maker_id'])
+        product = Product(row['name'], row['purchase'], row['sell'], row['description'], row['stock_qty'], maker, row['id'])
         products.append(product)
     return products
 
@@ -45,7 +46,7 @@ def select_all():
 
 def delete_all():
     sql = "DELETE FROM products"
-    run_sql
+    run_sql(sql)
 
 
 # #this is delete ID ONLY

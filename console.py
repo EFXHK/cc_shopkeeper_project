@@ -1,4 +1,3 @@
-from itertools import product
 import pdb
 from models.product import Product
 from models.maker import Maker
