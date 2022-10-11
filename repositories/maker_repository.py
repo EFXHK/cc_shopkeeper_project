@@ -1,5 +1,6 @@
 # from multiprocessing import AuthenticationError
 from db.run_sql import run_sql
+from repositories import maker_repository
 
 from models.maker import Maker  # 1.2many
 from models.product import Product
