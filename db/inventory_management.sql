@@ -17,6 +17,6 @@ CREATE TABLE products (
     description VARCHAR (255),
     stock_qty INT,
     maker_id INT NOT NULL REFERENCES makers(id) --ON DELETE CASCADE
-    --review TEXT -- makerS?
+    --review TEXT
 );
 
