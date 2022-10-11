@@ -1,3 +1,4 @@
+from math import prod
 import pdb
 from models.product import Product
 from models.maker import Maker
@@ -22,6 +23,9 @@ product_repository.save(productX1)
 
 productX2 = Product("CCCCCCCC", 11, 12, "mug", 16, makerX2)
 product_repository.save(productX2)
+
+productX3 = Product("YYYYY", 22, 66, "Dare I", 99, makerX1)
+product_repository.save(productX3)
 
 
 all_makers = maker_repository.select_all()
