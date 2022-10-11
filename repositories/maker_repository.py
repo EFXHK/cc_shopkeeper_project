@@ -6,7 +6,6 @@ from models.maker import Maker  # 1.2many
 from models.product import Product
 
 # SAVE
-
 def save(maker):
     sql = """
     INSERT INTO makers (name, address)
@@ -19,7 +18,7 @@ def save(maker):
     #maker.id = results[0]['id']
     return maker
 
-
+# SELECT ALL
 def select_all():
     makers = []
 
@@ -31,8 +30,7 @@ def select_all():
         makers.append(maker)
     return makers
 
-# add rest of functions
-
+# SELECT MAKER ID
 def select(id):
     maker = None
     sql = "SELECT * FROM makers WHERE id = %s"
@@ -43,19 +41,19 @@ def select(id):
         maker = Maker(result['name'], result['address'], result['id'])
     return maker
 
-
-
-
+# DELETE ALL
 def delete_all():
     sql = "DELETE FROM makers"
     run_sql(sql)
 
-# def delete(id):
-#     sql = "DELETE FROM makers WHERE is = %s"
-#     values = [id]
-#     run_sql(sql, values)
+# DELETE WITH ID ONLY
+def delete(id):
+    sql = "DELETE FROM makers WHERE is = %s"
+    values = [id]
+    run_sql(sql, values)
 
-# def update(makers):
-#     sql = "UPDATE makers SET (name, address, maker_id) = %s, %s, %s) WHERE id = %s"
-#     values = [makers.name, makers.address, makers.id]
-#     run_sql(sql, values)
+# UPDATE MAKER
+def update(makers):
+    sql = "UPDATE makers SET (name, address, maker_id) = %s, %s, %s) WHERE id = %s"
+    values = [makers.name, makers.address, makers.id]
+    run_sql(sql, values)

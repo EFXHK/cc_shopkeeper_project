@@ -4,7 +4,6 @@ from models.product import Product
 from models.maker import Maker
 
 # SAVE
-### missing empty list?
 def save(product):
     sql = """
     INSERT INTO products (name, purchase, sell, description, stock_qty, maker_id)
@@ -17,9 +16,7 @@ def save(product):
     # product.id = results[0]['id']
     return product
 
-# SELECT ALL, ID / DELETE ALL, ID / UPDATE
-
-
+# SELECT ALL
 def select_all():
     products = []
 
@@ -31,31 +28,31 @@ def select_all():
         products.append(product)
     return products
 
-# def select(id):
-#     user = None
-#     sql = "SELECT * FROM products WHERE id = %s"
-#     values = [id]
-#     results = run_sql(sql, values)
+# SELECT PRODUCT ID
+def select(id):
+    user = None
+    sql = "SELECT * FROM products WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
 
-#     if results:
-#         result = results[0]
-#         product = Product(result['name'], result['purchase'], result['sell'], result['description'], result['stock_qty'], result['maker'], result['id'])
-#     return product
+    if results:
+        result = results[0]
+        product = Product(result['name'], result['purchase'], result['sell'], result['description'], result['stock_qty'], result['maker'], result['id'])
+    return product
 
-
-
+# DELETE ALL
 def delete_all():
     sql = "DELETE FROM products"
     run_sql(sql)
 
+# DELETE WITH ID ONLY
+def delete(id):
+    sql = "DELETE FROM product WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
 
-# #this is delete ID ONLY
-# def delete(id):
-#     sql = "DELETE FROM product WHERE id = %s"
-#     values = [id]
-#     run_sql(sql,values)
-
-# def update(product):
-#     sql = "UPDATE products SET (name, purchase, sell, description, stock_qty, maker) = (%s, %s, %s, %s, %s, %s) WHERE is = %s"
-#     values = [product.name, product. purchase, product.sell, product.description, product.stock_qty, product.maker, product.id]
-#     run_sql(sql, values)
+# UPDATE PRODUCT
+def update(product):
+    sql = "UPDATE products SET (name, purchase, sell, description, stock_qty, maker) = (%s, %s, %s, %s, %s, %s) WHERE is = %s"
+    values = [product.name, product. purchase, product.sell, product.description, product.stock_qty, product.maker, product.id]
+    run_sql(sql, values)
