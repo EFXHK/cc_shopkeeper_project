@@ -30,13 +30,14 @@ def select_all():
 
 # SELECT PRODUCT ID
 def select(id):
-    user = None
+    product = None
     sql = "SELECT * FROM products WHERE id = %s"
     values = [id]
-    results = run_sql(sql, values)
+    results = run_sql(sql, values) #[0]
 
     if results:
         result = results[0]
+        # end of line below might need amending
         product = Product(result['name'], result['purchase'], result['sell'], result['description'], result['stock_qty'], result['maker'], result['id'])
     return product
 
@@ -44,6 +45,11 @@ def select(id):
 def delete_all():
     sql = "DELETE FROM products"
     run_sql(sql)
+
+# is this the correct version? do i need both?
+# def delete_all()
+#     sql = "DELETE FROM makers"
+#     run_sql(sql)
 
 # DELETE WITH ID ONLY
 def delete(id):
@@ -56,3 +62,5 @@ def update(product):
     sql = "UPDATE products SET (name, purchase, sell, description, stock_qty, maker) = (%s, %s, %s, %s, %s, %s) WHERE is = %s"
     values = [product.name, product. purchase, product.sell, product.description, product.stock_qty, product.maker, product.id]
     run_sql(sql, values)
+
+# additional?
