@@ -37,6 +37,5 @@ for maker in all_makers:
 for product in all_products:
     print(product.__dict__)
 
+# pdb.set_trace() # inserts debugger
 breakpoint()
-
-#pbd set trace thing 

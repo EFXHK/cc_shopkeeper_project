@@ -5,7 +5,7 @@ from models.product import Product
 from models.maker import Maker
 
 import repositories.maker_repository as maker_repository
-import repositories.product_repository as product_repository
+import repositories.product_repository as product_repository  # Keep an eye on the order
 
 products_blueprint = Blueprint("products", __name__)
 
@@ -13,7 +13,7 @@ products_blueprint = Blueprint("products", __name__)
 @products_blueprint.route("/products")
 def products():
     products = product_repository.select_all()
-    return render_template("products/index.html", products = products)
+    return render_template("products/index.html", products = products) # this could go into /  and homepage
 
 ################################################################
 
@@ -21,7 +21,7 @@ def products():
 def new_product():
     products = product_repository.select_all()
     ############ makers = makers_repository.select_all()
-    return render_template("products/new.html", products = products)
+    return render_template("products/new.html", products = products) #makers = makers
 
 
 
