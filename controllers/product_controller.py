@@ -29,15 +29,15 @@ def new_product():
 
 @products_blueprint.route("/products/<id>")
 def show(id):
-    product = product_repository.select(id)
-    maker = product_repository.makers(product)
-    return render_template("products/show.html", product=product, maker=maker)
+    products = product_repository.select(id)
+    maker = product_repository.makers(products)
+    return render_template("products/show.html", products=products, maker=maker)
 
 @products_blueprint.route("/products/<id>/edit", methods=['GET'])
 def edit_product(id):
-    product = product_repository.select(id)
+    products = product_repository.select(id)
     maker = maker_repository.select_all()
-    return render_template("product/edit.html", product=product, maker=maker)
+    return render_template("product/edit.html", products=products, maker=maker)
 
 @products_blueprint.route("/products/<id>/delete", methods=['POST'])
 def delete_product(id):
