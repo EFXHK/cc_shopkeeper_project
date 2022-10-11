@@ -9,14 +9,14 @@ import repositories.product_repository as product_repository
 
 products_blueprint = Blueprint("products", __name__)
 
-# makers_blueprint = Blueprint("makers", __name__)
 
 @products_blueprint.route("/products")
 def products():
     products = product_repository.select_all()
     return render_template("products/index.html", products = products)
 
-# @makers_blueprint.route("/makers")
-# def makers():
-#     makers = maker_repository.select_all()
-#     return render_template("makers/index.html", makers = makers)
+@products_blueprint.route("/products/<id>")
+def show(id):
+    product = product_repository.select(id)
+    makers = product_repository.makers(product)
+    return render_template("products/show.html", product=product, makers=makers)
