@@ -18,7 +18,7 @@ maker_repository.save(makerX1)
 productX1 = Product("Siegbrau", 18, 27, "Comes in a jolly barrel mug", 60, makerX1)
 product_repository.save(productX1)
 
-productX2 = Product("CCCCCCCC", 1, 2, " mug", 6, makerX2)
+productX2 = Product("CCCCCCCC", 11, 12, "mug", 16, makerX2)
 product_repository.save(productX2)
 
 
