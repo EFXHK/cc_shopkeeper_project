@@ -17,13 +17,26 @@ def products():
 
 ################################################################
 
-@products_blueprint.route("/products/new", methods=['GET'])
+@products_blueprint.route("/products/new", methods=['GET']) 
 def new_product():
     products = product_repository.select_all()
-    ############ makers = makers_repository.select_all()
+    makers = maker_repository.select_all() 
     return render_template("products/new.html", products = products) #makers = makers
 
+@products_blueprint.route("/products/", methods=['POST'])
+def add_product():
+    ### would ID be in here? isnt ID automatically generated? 
+    name = request.form['name']
+    purchase = request.form['purchase']
+    sell = request.form['sell']
+    description = request.form['description']
+    stock_qty = request.form['stock_qty']
 
+    maker_id =request.form['maker']
+    maker = maker_repository.select(maker_id)
+    
+    product_repository.save(products)
+    return redirect("/products")
 
 ################################################################
 
