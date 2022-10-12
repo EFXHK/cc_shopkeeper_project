@@ -29,11 +29,15 @@ def new_maker():
 # CREATE, POST /makers
 @makers_blueprint.route("/makers", methods=['POST'])
 def create_maker():
-    name = request.form['name'] # this is probably wrong?
-    address = request.form['address'] # i dont understand how to do this one
-    maker_repository.save(makers)
+    name        = request.form['name']
+    address     = request.form['address']
+    product     = product.select(product_id) ##############
+    maker       = Maker(name, address)
+    maker_repository.save(maker)
     return redirect("/makers")
-# do i need to append to a list?
+
+
+
 
 @makers_blueprint.route("makers/<id>/delete", methods=['POST'])
 def delete_maker(id):
