@@ -2,6 +2,24 @@
 
 {% block content %}
 
-    Makers
+    <h1>Makers</h1>
+
+<table>
+    <tr>
+        <th>Current Suppliers</th>
+    </tr>
+
+    {% for maker in makers %}
+    <tr>
+        <td><a href="/makers/{{ maker.id }}"> 
+            {{maker.name}},
+            {{maker.address}}
+
+
+        </a></td>
+    </tr>
+    {% endfor %}
+
+</table>
 
 {% endblock %}

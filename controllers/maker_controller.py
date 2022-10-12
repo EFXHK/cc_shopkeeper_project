@@ -13,7 +13,7 @@ makers_blueprint = Blueprint("makers", __name__)
 
 @makers_blueprint.route("/makers")
 def makers():
-#    makers = maker_repository.select_all()
+    makers = maker_repository.select_all()
     return render_template("makers/index.html", makers = makers)
 
 # @makers_blueprint.route("/makers")
