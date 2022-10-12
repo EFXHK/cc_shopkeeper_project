@@ -7,3 +7,9 @@ class Product:
         self.stock_qty = stock_qty
         self.maker = maker
         self.id = id
+
+    def out_of_stock(self):
+        if self.stock_qty == 0:
+            return True
+
+    ## need to print something?

@@ -23,10 +23,10 @@
 
 
     <label name="maker">Maker</label>
-    <select name="maker">
+    <select name="maker_id">
 
         {% for maker in makers %}
-        <option value="{{maker.id}}">{{maker.name}}</option>
+        <option value="{{ maker.id }}">{{ maker.name }}</option>
         {% endfor %}
         
     </select>

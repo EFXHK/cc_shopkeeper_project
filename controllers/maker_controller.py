@@ -31,15 +31,13 @@ def new_maker():
 def create_maker():
     name        = request.form['name']
     address     = request.form['address']
-    product     = product.select(product_id) ##############
     maker       = Maker(name, address)
     maker_repository.save(maker)
     return redirect("/makers")
 
 
 
-
-@makers_blueprint.route("makers/<id>/delete", methods=['POST'])
+@makers_blueprint.route("/makers/<id>/delete", methods=['POST'])
 def delete_maker(id):
     maker_repository.delete(id)
     return redirect("/makers")

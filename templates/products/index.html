@@ -6,7 +6,12 @@
 
 <table>
     <tr>
+        <th></th>
         <th>Name</th>
+        <th>purchase</th>
+        <th>sell</th>
+        <th>description</th>
+        <th>stock_qty</th>
 
         <a href="/products/new">ADD TO INVENTORY</a>
 
@@ -14,15 +19,18 @@
 
     {% for product in products %}
     <tr>
-        <td><a href="/products/{{ product.id }}"> 
-            {{product.name}},
-            {{product.purchase}},
-            {{product.sell}},
-            {{product.description}},
-            {{product.stock_qty}}
+        <td><a href="/products/{{ product.id }}">Edit</a></td>
+        <td>{{product.name}}</td>
+        <td>{{product.purchase}}</td>
+        <td>{{product.sell}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.stock_qty}}</td>
+        <td>{{product.out_of_stock()}}</td>
+
+
+                    
             
 
-        </a></td>
     </tr>
     {% endfor %}
 

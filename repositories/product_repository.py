@@ -38,7 +38,7 @@ def select(id):
     if results:
         result = results[0]
         # end of line below might need amending
-        product = Product(result['name'], result['purchase'], result['sell'], result['description'], result['stock_qty'], result['maker'], result['id'])
+        product = Product(result['name'], result['purchase'], result['sell'], result['description'], result['stock_qty'], result['maker_id'], result['id'])
     return product
 
 # DELETE ALL
@@ -64,3 +64,30 @@ def update(product):
     run_sql(sql, values)
 
 # additional?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

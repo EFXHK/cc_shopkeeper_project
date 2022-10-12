@@ -1,4 +1,3 @@
-from math import prod
 import pdb
 from models.product import Product
 from models.maker import Maker
@@ -15,16 +14,16 @@ maker_repository.delete_all()
 makerX1 = Maker("Siegwards Brewery", "33 Catarina Crescent")
 maker_repository.save(makerX1)
 
-makerX2 = Maker("XXXXX", "3 TTTTTTTTt")
+makerX2 = Maker("Sage's Hat", "Farron Keep")
 maker_repository.save(makerX2)
 
-productX1 = Product("Siegbrau", 18, 27, "Comes in a jolly barrel mug", 60, makerX1)
+productX1 = Product("Siegbrau", 18, 27, "Comes in a jolly barrel mug.", 60, makerX1)
 product_repository.save(productX1)
 
-productX2 = Product("CCCCCCCC", 11, 12, "mug", 16, makerX2)
+productX2 = Product("Estus Flask", 298, 523, "It is warm to the touch.", 1, makerX1)
 product_repository.save(productX2)
 
-productX3 = Product("YYYYY", 22, 66, "Dare I", 99, makerX1)
+productX3 = Product("Moonlight Arrow (x10)", 55, 78, "(Bow sold separately).", 150, makerX2)
 product_repository.save(productX3)
 
 
