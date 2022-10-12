@@ -11,7 +11,16 @@
 
     {% for product in products %}
     <tr>
-        <td><a href="/products/{{ product.id }}"> {{product.name}} </a></td>
+        <td><a href="/products/{{ product.id }}"> 
+            {{product.name}},
+            {{product.purchase}},
+            {{product.sell}},
+            {{product.description}},
+            {{product.stock_qty}},
+            {{product.maker}}
+            
+
+        </a></td>
     </tr>
     {% endfor %}
 
