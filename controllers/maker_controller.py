@@ -5,11 +5,9 @@ from flask import Blueprint
 from models.maker import Maker
 
 import repositories.maker_repository as maker_repository
-# import repositories.product_repository as product_repository
+import repositories.product_repository as product_repository
 
 makers_blueprint = Blueprint("makers", __name__)
-
-# makers_blueprint = Blueprint("makers", __name__)
 
 @makers_blueprint.route("/makers")
 def makers():
@@ -20,3 +18,16 @@ def makers():
 # def makers():
 #     makers = maker_repository.select_all()
 #     return render_template("makers/index.html", makers = makers)
+
+@makers_blueprint.route("/makers/new", methods=['GET'])
+def new_maker():
+    makers = maker_repository.select_all()
+    ########
+    return render_template("makers/new.html", makers = makers)
+
+
+
+
+
+
+
