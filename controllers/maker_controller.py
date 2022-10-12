@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 
-# from models.product import Product
+#from models.product import Product
 from models.maker import Maker
 
 import repositories.maker_repository as maker_repository
