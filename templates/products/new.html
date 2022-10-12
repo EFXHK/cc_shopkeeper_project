@@ -1,18 +1,40 @@
-<!-- {% extends 'base.html' %}
-
+{% extends 'base.html' %}
 
 {% block content %}
 
-<h1>  product inventory  </h1>
+<h1> Expand your Inventory</h1>
 
-    <a href="/products/new">create new product</a>
+<section>
+<form action="/products" method="POST">
+
+    <label name="name">Item name</label>
+    <input type="text" name="name", placeholder="product" id="product">
+    
+    <label name="purchase">Purchase Cost</label>
+    <input type="number" name="purchase", placeholder="purchase" id="purchase">
+    
+    <label name="sell">Sell</label>
+    <input type="number" name="sell", placeholder="sell" id="sell">
+    
+    <label name="description">Description</label>
+    <input type="text" name="description", placeholder="description" id="description">
+
+    <label name="stock_qty">Stock Qty</label>
+    <input type="int" name="stock_qty", placeholder="stock_qty" id="stock_qty">
 
 
-    {% for product in products %}
+    <label name="maker">Maker</label>
+    <select name="maker">
+        {% for maker in makers %}
+        <option value="{{maker.id}}">{{maker.name}}</option>
+        {% endfor %}
+    </select>
 
-    <p>{{ product.name }}</p>
+    
+    <input type="submit" value="Add to Inventory">
 
-    {% endfor %}
+</form>
+</section>
 
-{% endblock %} -->
+{% endblock %}
 
