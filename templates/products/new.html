@@ -2,12 +2,11 @@
 
 {% block content %}
 
-<h1> Expand your Inventory</h1>
+<h1>Expand your Inventory</h1>
 
-<section>
 <form action="/products" method="POST">
 
-    <label name="name">Item name</label>
+    <label name="name">Item Name</label>
     <input type="text" name="name", placeholder="product" id="product">
     
     <label name="purchase">Purchase Cost</label>
@@ -25,16 +24,18 @@
 
     <label name="maker">Maker</label>
     <select name="maker">
+
         {% for maker in makers %}
         <option value="{{maker.id}}">{{maker.name}}</option>
         {% endfor %}
+        
     </select>
 
     
-    <input type="submit" value="Add to Inventory">
+<input type="submit" value="Add to Inventory">
 
 </form>
-</section>
+
 
 {% endblock %}
 

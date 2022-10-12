@@ -34,7 +34,7 @@ def add_product():
 
     maker_id =request.form['maker']
     maker = maker_repository.select(maker_id)
-    
+
     product_repository.save(products)
     return redirect("/products")
 

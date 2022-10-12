@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Register Maker</h1>
+
+<form action="/makers" method="POST">
+
+    <label name="name">Maker Name</label>
+    <input type="text" name="name", placeholder="maker" id="maker">
+    
+    <label name="address">Address</label>
+    <input type="text" name="address", placeholder="address" id="address">
+
+
+<input type="submit" value="Add Maker">
+
+</form>
+
+
+{% endblock %}
+
