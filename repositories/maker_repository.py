@@ -50,7 +50,7 @@ def delete_all():
 
 # DELETE WITH ID ONLY
 def delete(id):
-    sql = "DELETE FROM makers WHERE is = %s"
+    sql = "DELETE FROM makers WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 

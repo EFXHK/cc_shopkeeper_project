@@ -15,11 +15,11 @@
 
     {% for maker in makers %}
     <tr> 
-        <td>
-<form action="/makers/{{makers.id}}/delete" method="POST"
-<button type="submit">Delete</button>
-        </form>
-        </td>
+    <td>
+    <form action="/makers/{{maker.id}}/delete" method="POST">
+    <input type="submit" value="Delete">
+    </form>
+    </td>
 
         <td><a href="/makers/{{ maker.id }}">Edit</a></td>
             <td>{{maker.name}}</td>

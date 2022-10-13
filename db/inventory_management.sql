@@ -20,3 +20,6 @@ CREATE TABLE products (
     --review TEXT
 );
 
+
+-- numbers = "{:,}".format(500000)
+-- print(numbers)

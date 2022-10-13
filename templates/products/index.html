@@ -19,6 +19,10 @@
 
     {% for product in products %}
     <tr>
+        <td>
+            <form action="/products/{{product.id}}/delete" method="POST">
+            <input type="submit" value="Delete">
+            </form></td>
         <td><a href="/products/{{ product.id }}">Edit</a></td>
         <td>{{product.name}}</td>
         <td>{{product.purchase}}</td>
@@ -26,6 +30,7 @@
         <td>{{product.description}}</td>
         <td>{{product.stock_qty}}</td>
         <td>{{product.get_stock_level()}}</td>
+        <td>{{product.maker}}</td>
 
             </tr>
 
