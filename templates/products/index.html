@@ -12,7 +12,8 @@
         <th>sell (g)</th>
         <th>description</th>
         <th>stock_qty</th>
-
+        <th>Maker</th>
+        
         <a href="/products/new">ADD TO INVENTORY</a>
 
     </tr>
@@ -30,7 +31,7 @@
         <td>{{product.description}}</td>
         <td>{{product.stock_qty}}</td>
         <td>{{product.get_stock_level()}}</td>
-        <td>{{product.maker}}</td>
+        <td>{{product.maker.id}}</td>
 
             </tr>
 
