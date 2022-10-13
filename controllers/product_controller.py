@@ -1,4 +1,3 @@
-from itertools import product
 # from unicodedata import name
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
@@ -42,17 +41,18 @@ def add_product():
 
 ################################################################
 
-@products_blueprint.route("/products/<id>")
-def show(id):
-    products = product_repository.select(id)
-    maker = product_repository.maker(products)
-    return render_template("products/show.html", products=products, maker=maker)
+@products_blueprint.route("/products/<id>", methods=['GET'])
+def show_product(id):
+    product = product_repository.select(id)
+    return render_template("products/show.html", product=product)
 
 @products_blueprint.route("/products/<id>/edit", methods=['GET'])
 def edit_product(id):
-    products = product_repository.select(id)
-    maker = maker_repository.select_all()
-    return render_template("product/edit.html", products=products, maker=maker)
+#   products = product_repository.select(id)
+#   maker = maker_repository.select_all()
+    return render_template("products/edit.html", 
+                        product = product_repository.select(id),
+                        makers = maker_repository.select_all())
 
 @products_blueprint.route("/products/<id>/delete", methods=['POST'])
 def delete_product(id):
@@ -60,15 +60,15 @@ def delete_product(id):
     return redirect('/products')
 
 @products_blueprint.route("/products/<id>", methods=['POST'])
-def update_products(id):
+def update_product(id):
     name        = request.form['name']
     purchase    = request.form['purchase']
     sell        = request.form['sell']
     description = request.form['description']
     stock_qty   = request.form['stock_qty']
-    maker       = request.form['maker'] # maker_id?
-    maker       = maker_repository.select(maker)
+    maker       = maker_repository.select(request.form['maker_id'])
     product     = Product(name, purchase, sell, description, stock_qty, maker, id) # sus
+    # product     = product_repository.select(maker)
     product_repository.update(product)
     return redirect("/products")
 

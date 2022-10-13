@@ -32,9 +32,13 @@
     <input type="number" id="stock_qty" name="stock_qty" value="{{product.stock_qty}}" required>
     </div>
 
-    <div>  this needs to change to a prefill
+    <div>  
     <label for="maker">Maker</label>
-    <input type="text" id="maker" name="maker" value="{{product.maker}}" required>  
+    <select name="maker_id" id="maker">
+        {% for maker in makers %}
+            <option value="{{maker.id}}">{{ maker.name }}</option>
+        {% endfor %}
+    </select>
     </div>
     
     <button type="submit">Remake Product</button>

@@ -59,11 +59,16 @@ def delete(id):
 
 # UPDATE PRODUCT
 def update(product):
-    sql = "UPDATE products SET (name, purchase, sell, description, stock_qty, maker) = (%s, %s, %s, %s, %s, %s) WHERE is = %s"
-    values = [product.name, product. purchase, product.sell, product.description, product.stock_qty, product.maker, product.id]
+    sql = "UPDATE products SET (name, purchase, sell, description, stock_qty, maker_id) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [product.name, product. purchase, product.sell, product.description, product.stock_qty, product.maker.id, product.id]
     run_sql(sql, values)
 
-# additional?
+
+# def update(product):
+#     sql = "UPDATE products SET (name, purchase, sell, description, stock_qty, maker) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+#     values = [products.name, products. purchase, products.sell, products.description, products.stock_qty, products.maker, products.id]
+#     run_sql(sql, values)
+
 
 
 
