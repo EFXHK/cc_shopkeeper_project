@@ -56,6 +56,6 @@ def delete(id):
 
 # UPDATE MAKER
 def update(makers):
-    sql = "UPDATE makers SET (name, address, maker_id) = %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE makers SET (name, address) = (%s, %s) WHERE id = %s"
     values = [makers.name, makers.address, makers.id]
     run_sql(sql, values)

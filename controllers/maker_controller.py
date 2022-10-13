@@ -38,11 +38,19 @@ def create_maker():
 #####################################################################
 #### this is for editing
 
+
+@makers_blueprint.route("/makers/<id>/edit", methods=['GET'])
+def edit_maker(id):
+    
+    return render_template("makers/edit.html",
+                           maker = maker_repository.select(id))
+
+
+
 @makers_blueprint.route("/makers/<id>", methods=['POST'])
-def update_makers(id):
+def update_maker(id):
     name        = request.form['name']
     address     = request.form['address']
-    maker       = maker_repository.select(maker)
     maker       = Maker(name, address, id)
     maker_repository.update(maker)
     return redirect("/makers")
