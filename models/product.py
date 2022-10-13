@@ -8,8 +8,12 @@ class Product:
         self.maker = maker
         self.id = id
 
-    def out_of_stock(self):
-        if self.stock_qty == 0:
-            return True
 
-    ## need to print something?
+
+    def get_stock_level(self):
+        if self.stock_qty == 0:
+            return "Zero Stock"
+        elif self.stock_qty <= 2:  # if if also fine
+            return "Low Stock"
+        else:
+            return ""      # with or without else does the same and is fine

@@ -7,19 +7,24 @@
 <table>
     <tr>
         <th></th>
+        <th></th>
         <th>Name</th>
         <th>Address</th>
-
         <a href="/makers/new">ADD MAKER</a>
-
     </tr>
 
     {% for maker in makers %}
-    <tr>
+    <tr> 
+        <td>
+<form action="/makers/{{makers.id}}/delete" method="POST"
+<button type="submit">Delete</button>
+        </form>
+        </td>
+
         <td><a href="/makers/{{ maker.id }}">Edit</a></td>
             <td>{{maker.name}}</td>
             <td>{{maker.address}}</td>
-    </tr>
+        </tr>
     {% endfor %}
 
 </table>

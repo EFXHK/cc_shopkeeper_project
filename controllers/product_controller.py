@@ -1,3 +1,5 @@
+from itertools import product
+# from unicodedata import name
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 
@@ -56,3 +58,18 @@ def edit_product(id):
 def delete_product(id):
     product_repository.delete(id)
     return redirect('/products')
+
+@products_blueprint.route("/products/<id>", methods=['POST'])
+def update_products(id):
+    name        = request.form['name']
+    purchase    = request.form['purchase']
+    sell        = request.form['sell']
+    description = request.form['description']
+    stock_qty   = request.form['stock_qty']
+    maker       = request.form['maker'] # maker_id?
+    maker       = maker_repository.select(maker)
+    product     = Product(name, purchase, sell, description, stock_qty, maker, id) # sus
+    product_repository.update(product)
+    return redirect("/products")
+
+

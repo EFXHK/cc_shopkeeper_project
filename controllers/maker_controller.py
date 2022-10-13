@@ -35,7 +35,19 @@ def create_maker():
     maker_repository.save(maker)
     return redirect("/makers")
 
+#####################################################################
+#### this is for editing
 
+@makers_blueprint.route("/makers/<id>", methods=['POST'])
+def update_makers(id):
+    name        = request.form['name']
+    address     = request.form['address']
+    maker       = maker_repository.select(maker)
+    maker       = Maker(name, address, id)
+    maker_repository.update(maker)
+    return redirect("/makers")
+
+#####################################################################
 
 @makers_blueprint.route("/makers/<id>/delete", methods=['POST'])
 def delete_maker(id):

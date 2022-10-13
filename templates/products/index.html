@@ -9,7 +9,7 @@
         <th></th>
         <th>Name</th>
         <th>purchase</th>
-        <th>sell</th>
+        <th>sell (g)</th>
         <th>description</th>
         <th>stock_qty</th>
 
@@ -25,14 +25,12 @@
         <td>{{product.sell}}</td>
         <td>{{product.description}}</td>
         <td>{{product.stock_qty}}</td>
-        <td>{{product.out_of_stock()}}</td>
+        <td>{{product.get_stock_level()}}</td>
 
+            </tr>
 
-                    
-            
+            {% endfor %}
 
-    </tr>
-    {% endfor %}
 
 </table>
 
