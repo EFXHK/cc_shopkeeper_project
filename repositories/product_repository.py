@@ -53,7 +53,7 @@ def delete_all():
 
 # DELETE WITH ID ONLY
 def delete(id):
-    sql = "DELETE FROM product WHERE id = %s"
+    sql = "DELETE FROM products WHERE id = %s"
     values = [id]
     run_sql(sql,values)
 
