@@ -13,8 +13,7 @@ database name is inventory_management
 COMMANDS
 
 
-dropdb db_name
-
+dropdb db_name_
 python3 console.py
 
 flask run // runs app, cmd click ip in terminal to open in browser.
