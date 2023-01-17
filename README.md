@@ -14,11 +14,8 @@ COMMANDS
 
 
 dropdb db_name <br />
-python3 console.py
-
-flask run // runs app, cmd click ip in terminal to open in browser.
-
-psql db_name // (enters shell)
-
-SELECT * FROM table_name // to output data in terminal. 
+python3 console.py <br />
+flask run // runs app, cmd click ip in terminal to open in browser.<br />
+psql db_name // (enters shell)<br />
+SELECT * FROM table_name // to output data in terminal. <br />
 
