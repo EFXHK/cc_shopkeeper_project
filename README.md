@@ -1,16 +1,16 @@
-# cc_shopkeeper_project
+# cc_shopkeeper_project<br />
 
 
-An inventory manager app that will track the stock of products.
-Products each have a Maker and both can be edited/deleted/added. 
-
-
-
-database name is inventory_management
+An inventory manager app that will track the stock of products.<br />
+Products each have a Maker and both can be edited/deleted/added. <br />
 
 
 
-COMMANDS
+database name is inventory_management<br />
+
+
+
+COMMANDS<br />
 
 
 dropdb db_name <br />
